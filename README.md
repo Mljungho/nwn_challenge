@@ -12,7 +12,7 @@ I want to search for news
 
 ### How we used Thunder Client
 
-![Top Headlines in Thunder Client](Images/thunder_client_1.png)
+![Top Headlines in Thunder Client](/images/thunder_client_1.png)
 
 1. From `newsapi.org` we got the first part of Thunder Client request (https://newsapi.org/v2/top-headlines)
 2. In Query Paramaters added parameters (country and key)
