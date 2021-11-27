@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("Display latest news headlines", () => {
   beforeEach(() => {
-    cy.intercept("GET", "https://newsapi.org/v2/top-headlines/**", {
+    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
       fixture: "news_index.json",
     });
     cy.visit("/");
