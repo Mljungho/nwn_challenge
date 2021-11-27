@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
-describe("Display latest news headlines", () => {
+describe("Display news from search results", () => {
   before(() => {
-    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
-      fixture: "news_index.json",
+    cy.intercept("GET", "https://newsapi.org/v2/everything**", {
+      fixture: "search_response.json",
     });
     cy.visit("/");
+    cy.get("[data-cy=input_search]").type("politics");
+    cy.get("[data-cy=search_btn]").click();
   });
 
   it("is expected to see a header", () => {
@@ -23,7 +25,7 @@ describe("Display latest news headlines", () => {
           cy.get(".image").should("exist");
           cy.get(".header").should(
             "contain",
-            "Broadway legend Stephen Sondheim, whose work transformed musical theater, dead at 91 - Reuters"
+            "Channel migrants: Why politics is dominating the debate on migrants"
           );
           cy.get(".description").should("exist");
         });
