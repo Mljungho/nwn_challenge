@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import NewsService from '../modules/NewsService'
-import { Input } from 'semantic-ui-react'
-
+import React, { useEffect } from "react";
+//import { useDispatch } from 'react-redux'
+//import NewsService from '../modules/NewsService'
+import { Input } from "semantic-ui-react";
 
 const NewsSearch = () => {
-  return (
-    <Input action='Search' placeholder='Search...' />
-  )
-}
+  return <Input action="Search" placeholder="Search..." />;
+};
 
-export default NewsSearch
+export default NewsSearch;
