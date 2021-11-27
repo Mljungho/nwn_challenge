@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import axios from 'axios'
 
 const NewsService = {
