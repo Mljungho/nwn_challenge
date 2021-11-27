@@ -1,17 +1,19 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Header, Card, Image } from "semantic-ui-react";
 
-const NewsCard = (news_index) => {
+const NewsCard = ({article}) => {
+  
   return (
-    <Card>
-      <Image src={news_index.urlToImage} wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>{news_index.title}</Card.Header>
-        <Card.Meta>{`By: ${news_index.author} at ${news_index.name}`} </Card.Meta>
-        <Card.Description>{news_index.description}</Card.Description>
-        <Card.Extra>{`Published at ${news_index.publishedAt}`}</Card.Extra>
-      </Card.Content>
-    </Card>
+    <Card
+    data-cy={`article-${article.id}`}
+    key={article.index}
+    image={article.urlToImage}
+    header={article.title}
+    meta={`By: ${article.author} at ${article.name}`}
+    description={article.description}
+    extra={<Header as="h6">{`Published at ${article.publishedAt}`}</Header>}
+    href={article.url}
+  ></Card>
   );
 };
 
