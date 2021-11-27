@@ -1,12 +1,26 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import NewsService from '../modules/NewsService'
-import { Input } from 'semantic-ui-react'
+import { Input, Search } from 'semantic-ui-react'
 
 
-const NewsSearch = () => {
+const NewsSearch = ({}) => {
+//   const [search, setSearch] = useState();
+
+//   const handleSearch = (search) => {
+//     return search;
+
+//   }
+
+// };
+
+// useEffect(() = {
+
+// })
+
+
   return (
-    <Input action='Search' placeholder='Search...' />
+    <Input data-cy='input_search' action='Search' placeholder='Search...' />
   )
 }
 
