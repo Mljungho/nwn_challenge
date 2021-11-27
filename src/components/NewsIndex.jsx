@@ -13,7 +13,7 @@ const NewsIndex = () => {
 
   const getTopHeadlines = async () => {
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey={process.env.REACT_APP_NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
     );
     setTopHeadlines(response.data.articles);
   };
