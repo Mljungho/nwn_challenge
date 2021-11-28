@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 describe("Display news from search results", () => {
   before(() => {
-    cy.intercept("GET", "https://newsapi.org/v2/everything**", {
+    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
       fixture: "search_response.json",
     });
     cy.visit("/");
     cy.get("[data-cy=input_search]").type("politics");
-    cy.get("[data-cy=search_btn]").click();
+    cy.get(".ui button").click();
   });
 
   it("is expected to see a header", () => {
