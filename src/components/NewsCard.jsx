@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Card, Image } from "semantic-ui-react";
+import { Header, Card } from "semantic-ui-react";
 
 const NewsCard = ({article}) => {
   

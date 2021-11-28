@@ -1,5 +1,5 @@
 /* eslint-disable no-empty-pattern */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 //import { useDispatch } from "react-redux";
 //import NewsService from "../modules/NewsService";
 import { Input } from "semantic-ui-react";
