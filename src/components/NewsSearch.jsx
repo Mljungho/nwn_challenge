@@ -1,30 +1,33 @@
 /* eslint-disable no-empty-pattern */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 //import { useDispatch } from "react-redux";
 //import NewsService from "../modules/NewsService";
-import { Input } from "semantic-ui-react";
+import { Input, Button } from "semantic-ui-react";
 import axios from "axios";
 
 const NewsSearch = () => {
   const [searchValue, setSearchValue] = useState();
-  const [searchResponse, setSearchResponse] = useState([]);
+
+  const dispatch = useDispatch();
 
   const getSearchResponse = async () => {
     const response = await axios.get(
       `https://newsapi.org/v2/everything?q=${searchValue}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
     );
-    setSearchResponse(response.data.articles);
+    dispatch({ type: "SET_NEWS_FEED", payload: response.data.articles });
   };
 
   return (
     <>
       <Input
         data-cy="input_search"
-        action="Search"
         placeholder="Search..."
         onChange={(event) => setSearchValue(event.target.value)}
-        onClick={getSearchResponse}
       />
+      <Button data-cy="search_btn" onClick={() => getSearchResponse}>
+        Search
+      </Button>
     </>
   );
 };
