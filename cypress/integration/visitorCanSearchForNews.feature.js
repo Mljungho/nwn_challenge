@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("Display news from search results", () => {
   before(() => {
-    cy.intercept("GET", "https://newsapi.org/v2/top-headlines**", {
+    cy.intercept("GET", "https://newsapi.org/v2/everything**", {
       fixture: "search_response.json",
     });
     cy.visit("/");
