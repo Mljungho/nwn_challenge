@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "react";
-//import { useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import NewsCard from "./NewsCard";
 import { Grid } from "semantic-ui-react";
-import axios from "axios";
+// import axios from "axios";
 
 const NewsIndex = () => {
-  const [topHeadlines, setTopHeadlines] = useState([]);
+  const dispatch = useDispatch();
+  const articles = useSelector((state) => state.newsFeed);
 
   useEffect(() => {
-    getTopHeadlines();
+    NewsSerevice.index(dispatch);
   }, []);
 
-  const getTopHeadlines = async () => {
-    const response = await axios.get(
-      `https://newsapi.org/v2/everything?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-    );
-    setTopHeadlines(response.data.articles);
-  };
-
-  const listOfTopHeadlines = topHeadlines.map((article) => {
+  let listOfTopHeadlines = articles.map(() => {
     return <NewsCard article={article} />;
   });
   return (
