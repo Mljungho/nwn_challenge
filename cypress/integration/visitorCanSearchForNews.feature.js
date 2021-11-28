@@ -6,7 +6,7 @@ describe("Display news from search results", () => {
     });
     cy.visit("/");
     cy.get("[data-cy=input_search]").type("politics");
-    cy.get(".ui button").click();
+    cy.get("[data-cy=search_btn]").click();
   });
 
   it("is expected to see a header", () => {
